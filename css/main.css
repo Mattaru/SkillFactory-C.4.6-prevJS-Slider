@@ -1,0 +1,54 @@
+body {
+    background-color: black;
+}
+.decorator {
+    max-width: 1000px;
+    margin: 200px auto;
+}
+.slider {
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 5px;
+}
+.left {
+    border-radius: 15px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 5%;
+    top: 47%;
+    opacity: 0.5;
+    outline: none;
+    cursor: pointer;
+}
+.right {
+    border-radius: 15px;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5%;
+    top: 47%;
+    opacity: 0.5;
+    outline: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: darkgreen;
+}
+.slider-img {
+    border: 1px solid black;
+    width: 100%;
+    height: 600px;
+}
+.gallery {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.gal-img {
+    border: 1px solid #fff;
+    max-width: 198px;
+    cursor: pointer;
+}
