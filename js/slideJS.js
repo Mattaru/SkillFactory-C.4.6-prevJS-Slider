@@ -68,11 +68,10 @@ function showGallery() {
     let imgIndex = IMAGELIST.indexOf(currImg);
     let iList = indexHandler(imgIndex);
 
-    document.querySelector(".img1").setAttribute("src", IMAGELIST[iList[0]]);
-    document.querySelector(".img2").setAttribute("src", IMAGELIST[iList[1]]);
-    document.querySelector(".img3").setAttribute("src", IMAGELIST[iList[2]]);
-    document.querySelector(".img4").setAttribute("src", IMAGELIST[iList[3]]);
-    document.querySelector(".img5").setAttribute("src", IMAGELIST[iList[4]]);
+    let childList = document.querySelector(".gallery").children;
+    for (let i = 0; i < childList.length; i++) {
+        childList[i].setAttribute("src", IMAGELIST[iList[i]]);
+    }
 }
 
 function indexHandler(index) {
