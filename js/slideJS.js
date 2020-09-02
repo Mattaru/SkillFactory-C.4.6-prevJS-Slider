@@ -6,7 +6,7 @@ window.onload = function() {
         document.querySelector(".slider-img").setAttribute("src", IMAGELIST[0]);
         showGallery();
         setOnClickEvent();
-    }, 1000);
+    }, 600);
 }
 
 document.querySelector(".left").addEventListener("click", () => {
@@ -136,7 +136,7 @@ function getImgs(arr) {
             else
                 return response;
         })
-        .then(async response => {
+        .then(response => {
             arr.push(response.url);
         })
         .catch(e => consol.log("Request error: " + e.message))
