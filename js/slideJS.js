@@ -1,13 +1,12 @@
 const IMAGELIST = [];
 
-window.addEventListener("DOMContentLoaded", () => getImgs(IMAGELIST, 20));
-
 window.onload = function() {
+    imgCount(20, getImgs);
     setTimeout(() => {
         document.querySelector(".slider-img").setAttribute("src", IMAGELIST[0]);
         showGallery();
         setOnClickEvent();
-    }, 400)
+    }, 1000);
 }
 
 document.querySelector(".left").addEventListener("click", () => {
@@ -122,10 +121,23 @@ function setOnClickEvent() {
     }
 }
 
-function getImgs(arr, count) {
-    for (let i = 0; i < count; i++) {
-        fetch("https://picsum.photos/1280/720")
-            .then(response => arr.push(response.url))
+function imgCount(count, callback) {
+    for (let i = 0; i < count - 1; i++) {
+        callback(IMAGELIST);
     }
-    return arr
+    console.log(IMAGELIST.length)
+}
+
+function getImgs(arr) {
+    fetch("https://picsum.photos/1280/720")
+        .then(response => {
+            if (response.status < 200 || response.status > 300)
+                throw error
+            else
+                return response;
+        })
+        .then(async response => {
+            arr.push(response.url);
+        })
+        .catch(e => consol.log("Request error: " + e.message))
 }
